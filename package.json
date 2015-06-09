@@ -1,7 +1,7 @@
 {
   "name": "hubot-script-spreadsheet",
-  "version": "0.0.13",
-  "description": "(query) interface to google spreadsheet (with authentication)",
+  "version": "0.0.14",
+  "description": "(query) interface to google spreadsheet (Using phones as command call)",
   "main": "index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,10 +18,10 @@
   "keywords": [
     "Hubot"
   ],
-  "author": "Leon van Kammen / coderofsalvation",
+  "author": "Wai Choong Wu / ihugacownow",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/coderofsalvation/hubot-script-spreadsheet/issues"
+    "url": "https://github.com/ihugacownow/hubot-script-spreadsheet/issues"
   },
-  "homepage": "https://github.com/coderofsalvation/hubot-script-spreadsheet"
+  "homepage": "https://github.com/ihugacownow/hubot-script-spreadsheet#phones"
 }
