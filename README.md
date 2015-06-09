@@ -3,9 +3,6 @@ hubot-script-spreadsheet
 
 hubot (query) interface to google spreadsheet (*with* authentication)
 
-<img alt="" src="https://raw.githubusercontent.com/coderofsalvation/hubot-script-spreadsheet/master/.res/cat.gif"/>
-
-A cat gif, no project can live without it!
 
 ### Example
 
@@ -37,18 +34,22 @@ Its easy for everybody to use, so referencing/querying spreadsheets can be very 
 
 ###  Configuration:
 
-    GOOGLE_SPREADSHEET_LOGIN="you@gmail.com"
-    GOOGLE_SPREADSHEET_PASSWD="somepassword"
+    client_id: 
+    client_secret:
+    refresh_token:
 
 ### Commands:
 
 add a spreadsheet first: 
 
-    hubot spreadsheet save myspreadsheet spreadsheetname|sheet1|2|http://....
+    hubot phones save myspreadsheet spreadsheetname|sheet1|2|http://....
 
 then:
 
-     hubot spreadsheet                                 # shows usage + available sheets
-     hubot spreadsheet myspreadsheet                   # displays sheet
-     hubot spreadsheet myspreadsheet <regex>           # displays sheet entries which match "foo"
-     hubot spreadsheet del myspreadsheet               # delete
+     hubot phones                                 # shows usage + available sheets
+
+     hubot phones myspreadsheet                   # displays sheet
+
+     hubot phones myspreadsheet <regex>           # displays sheet  entries which match "foo"
+     
+     hubot phones del myspreadsheet               # delete

@@ -19,10 +19,7 @@ module.exports = (robot) ->
       items = {}
       robot.brain.set ITEMS_KEY, items
     items
-  #parts[1].substr(1,parts[1].length-1) : false;  
   
-  # Choose from 1 of the 3 authentication methods:
-  #    1. Username and Password
   rowContains = (row, searchstr) ->
     regexString = new RegExp(searchstr,"i")
     for col of row
@@ -34,7 +31,7 @@ module.exports = (robot) ->
   ITEMS_KEY = "spreadsheet_urls"
   Table = require("easy-table")
   MAXROWS = 60
-  robot.respond /spreadsheet$/i, (msg) ->
+  robot.respond /phones$/i, (msg) ->
     items = getItems()
     str = "shows/queries spreadsheets\n"
     str += "usage: " + robot.name + " <name> [searchstring]\n"
@@ -48,7 +45,7 @@ module.exports = (robot) ->
     msg.send str
     return
 
-  robot.respond /spreadsheet delete (\w+)\s?(.*)$/i, (msg) ->
+  robot.respond /phones delete (\w+)\s?(.*)$/i, (msg) ->
     name = msg.match[1].toLowerCase()
     url = msg.match[2]
     items = getItems()
@@ -58,7 +55,7 @@ module.exports = (robot) ->
     robot.brain.set ITEMS_KEY, items
     msg.send name + " removed"
 
-  robot.respond /spreadsheet save (\w+) (.*)$/i, (msg) ->
+  robot.respond /phones save (\w+) (.*)$/i, (msg) ->
     shortname = msg.match[1]
     parts = msg.match[2].split("|")
     return msg.send("incorrect parameters given")  unless parts.length is 4
@@ -74,7 +71,7 @@ module.exports = (robot) ->
     robot.brain.set ITEMS_KEY, items
     msg.send shortname + " saved"
 
-  robot.respond /spreadsheet (.*)/i, (msg) ->
+  robot.respond /phones (.*)/i, (msg) ->
     parts = msg.match[1].split(" ")
     name = parts[0]
     return  if name is "delete" or name is "save"
