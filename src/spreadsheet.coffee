@@ -1,12 +1,12 @@
 # Description:
 #   hubot (query) interface to google spreadsheet (*with* authentication)
 #
-# more info/usage see: https://github.com/coderofsalvation/hubot-script-spreadsheet
+# more info/usage see: https://github.com/ihugacownow/hubot-script-spreadsheet
 #
-# Author: coder of salvation
+# Author: ihugacownow editing from coderofsalvation see: https://github.com/coderofsalvation/hubot-script-spreadsheet
 #   
 # Commands:
-#   hubot spreadsheet - commands to query google spreadsheets
+#   hubot phones - commands to query google spreadsheets
 # 
 module.exports = (robot) ->
   # prevent flooding
@@ -30,7 +30,7 @@ module.exports = (robot) ->
   Url = require("url")
   ITEMS_KEY = "spreadsheet_urls"
   Table = require("easy-table")
-  MAXROWS = 60
+  MAXROWS = 200
   robot.respond /phones$/i, (msg) ->
     items = getItems()
     str = "shows/queries spreadsheets\n"
@@ -109,8 +109,9 @@ module.exports = (robot) ->
               empty = false
           t.newRow()  unless empty
           i++
-        msg.send t.toString() + "\nsee all results @ " + data.url
-
+        outputString = "``` " + t.toString() + " ```"
+        msg.send outputString + "\nsee all results @ " + data.url
+        
       return
 
     return
